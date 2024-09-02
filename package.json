@@ -1,0 +1,14 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "no description",
+  "scripts": {
+    "start": "npx start-server -s ./frontend/build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Egor Kurilko (R)",
+  "license": "ISC",
+  "dependencies": {
+    "@hexlet/chat-server": "^2.0.4"
+  }
+}
