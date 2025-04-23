@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './components/App';
+import AuthProvider from './components/AuthProvider.jsx';
+import { store } from './services/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// StrictMode:
+// Работает только в режиме разработки. В продакшене он автоматически отключается.
+// Не влияет на рендеринг в продакшене, поэтому вы можете безопасно оборачивать
+// компоненты в StrictMode.
+// Осн.функции:
+// Выявление небезопасных методов жизненного цикла
+// Дублированный рендеринг в целях проверки:
+// (Проверки побочных эффектов, которые могут возникать в рендеринге или в хуках)
+// Предупреждение об использовании устаревших API
+// Выявление ошибок при работе с состоянием и эффектами

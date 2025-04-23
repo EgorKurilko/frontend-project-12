@@ -2,15 +2,20 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "no description",
-  "workspaces": ["frontend"],
   "scripts": {
     "start": "npx start-server -s ./frontend/build",
     "build": "npm run build --prefix frontend",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd frontend && npm ci"
   },
   "author": "Egor Kurilko (R)",
   "license": "ISC",
   "dependencies": {
-    "@hexlet/chat-server": "^2.0.4"
+    "@hexlet/chat-server": "^2.0.4",
+    "bootstrap": "^5.3.3",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1"
   }
 }
