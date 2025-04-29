@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import routes from '../routes';
 import LogInPage from '../pages/LogInPage.jsx';
 import SignUpPage from '../pages/SignUpPage.jsx';
@@ -17,7 +18,8 @@ const AppRouter = () => (
         </ProtectedRoute>
       } 
     />
-    <Route path={routes.client.notFound()} element={<NotFoundPage />} />
+    <Route path="/not-found" element={<NotFoundPage />} />
+    <Route path="*" element={<Navigate to="/not-found" replace />} />
   </Routes>
 );
 

@@ -4,8 +4,10 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     token: null,
-    currentUser: null,
+    user: null,
     isAuthenticated: false,
+    isLoading: true, // Для проверки токена при старте
+    error: null,
   },
   reducers: {
     setCredentials: (state, action) => {

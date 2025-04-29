@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { clearCredentials } from '../services/authSlice';
-import AuthContext from '../contexts/authcontext.jsx';
+import AuthContext from '../contexts/AuthContext';
 
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(() => !!localStorage.getItem('token'));

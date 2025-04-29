@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import { login } from '../services/authSlice';
+import { BrowserRouter as Router, useLocation, useNavigate } from 'react-router-dom';
+import { setCredentials } from '../services/authSlice';
 import routes from '../routes';
 import AuthProvider from './AuthProvider';
-import Layout from './Layout';
-import LogInPage from '../pages/LogInPage';
-import SignUpPage from '../pages/SignUpPage';
-import MainPage from '../pages/MainPage';
-import NotFoundPage from '../pages/NotFoundPage';
-import ProtectedRoute from './ProtectedRoute';
+import Layout from './Layout/Layout';
 import AppRouter from './AppRouter';
 
 // для отделения логики и проверки токена вводим компонент AppContent
@@ -25,7 +20,7 @@ const AppContent = () => {
     if (!token && pathname !== routes.client.notFound()) {
       navigate(routes.client.login());
     } else if (token) {
-      dispatch(login({ token }));
+      dispatch(setCredentials({ token }));
     }
   }, [dispatch, navigate, location.pathname]);
 

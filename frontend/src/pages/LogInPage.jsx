@@ -3,10 +3,10 @@ import { useFormik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
-import { useLoginMutation } from '../services/authApi.js';
+import { useLoginMutation } from '../services/authApi';
 import { useTranslation } from 'react-i18next';
-import useAuth from '../hooks/useauth.jsx';
-import routes from '../routes.js';
+import useAuth from '../hooks/useAuth';
+import routes from '../routes';
 
 const LogInPage = () => {
   const { t } = useTranslation('auth');
@@ -25,8 +25,10 @@ const LogInPage = () => {
     validationSchema,
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        const { token } = await login(values).unwrap();
-        localStorage.setItem('token', JSON.stringify({ token }));
+        const { token, username } = await login(values).unwrap();
+        // localStorage.setItem('token', JSON.stringify({ token }));
+        localStorage.setItem('token', token);
+        dispatch(setCredentials({ token, username }));
         auth.logIn();
         navigate(location.state?.from?.pathname || '/');
       } catch (err) {

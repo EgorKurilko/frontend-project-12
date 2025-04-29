@@ -1,7 +1,7 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { Button, Navbar, Container } from 'react-bootstrap';
-import { useAuth } from '../hooks/useauth';
-import routes from '../routes';
+import useAuth from '../../hooks/useAuth';
+import routes from '../../routes';
 import styles from './Layout.module.css';
 
 const Layout = () => {

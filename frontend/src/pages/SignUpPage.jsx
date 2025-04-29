@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { useSignupMutation } from '../services/authApi.js';
 import { useTranslation } from 'react-i18next';
-import useAuth from '../hooks/useauth.jsx';
+import useAuth from '../hooks/useAuth.js';
 import routes from '../routes.js';
 
 const SignUpPage = () => {
@@ -26,8 +26,11 @@ const SignUpPage = () => {
     validationSchema,
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        const { token } = await signup(values).unwrap();
-        localStorage.setItem('userId', JSON.stringify({ token }));
+        const { token, username } = await signup(values).unwrap();
+        // localStorage.setItem('token', JSON.stringify({ token })); // почему нет JSON.stringify
+        localStorage.setItem('token', token);
+        // const user = { username: values.username }; // зачем user?
+        dispatch(setCredentials({ token, username }));
         auth.logIn();
         navigate(location.state?.from?.pathname || '/');
       } catch (err) {
