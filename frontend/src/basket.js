@@ -114,3 +114,30 @@
 // 5. При наведении курсора на название поля, всплывает окошко с предупреждением (# обязательное поле)
 // 6. Добавить три модальных окна: добавление, удаление и переименование канала.
 // 7. Если токен недействителен, сервер вернёт 401, и клиент тоже должен делать logout.
+
+// Файл SignupFormInput в исходнике и далее в файле SignupForm используется с "s" на конце. 
+
+// # html
+/* <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Hexlet Chat</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+    <script type="module" src="/src/index.js"></script>
+    -->
+  </body>
+</html> */
