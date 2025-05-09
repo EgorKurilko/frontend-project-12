@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { openAddChannelModal } from '../store/slices/modalSlice';
 import ChannelsBox from './ChannelsBox';
 
@@ -17,7 +17,8 @@ const ChannelContainer = () => {
           className="p-0 text-primary btn btn-group-vertical"
           onClick={() => dispatch(openAddChannelModal())}
         >
-          {t('plus')}
+          {/* {t('plus')} */}
+          <i className="bi bi-plus-square" style={{ fontSize: '20px' }} />
           <span className="visually-hidden">{t('plus')}</span>
         </button>
       </div>

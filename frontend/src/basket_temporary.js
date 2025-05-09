@@ -141,3 +141,98 @@
     -->
   </body>
 </html> */
+
+// Файл шаблона
+{/* 
+<div class="mt-auto px-5 py-3">
+  <form novalidate="" class="py-1 border rounded-2">
+    <div class="input-group has-validation">
+      <input name="body" aria-label="Новое сообщение" placeholder="Введите сообщение..." class="border-0 p-0 ps-2 form-control" value="" />
+        <button type="submit" disabled="" class="btn btn-group-vertical">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
+            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"></path>
+          </svg>
+          <span class="visually-hidden">Отправить</span>
+        </button>
+    </div>
+  </form>
+</div>
+
+// файл проекта
+<div class="mt-auto px-5 py-3">
+  <form class="py-1 border rounded-2">
+    <div class="has-validation d-flex align-items-center">
+      <input name="body" aria-label="Новое сообщение" placeholder="Введите сообщение..." class="border-0 p-6 ps-2 flex-grow-1 form-control" />
+        <button type="submit" class="ml-2 btn btn-group-vertical">
+          <i class="bi bi-arrow-right-square" />
+          Отправить
+          <span class="visually-hidden">Отправить</span>
+        </button>
+    </div>
+  </form>
+</div> */}
+
+// следующим этапом нужно подставить код из input group (https://react-bootstrap.netlify.app/docs/forms/input-group#button-addons)
+// и или
+// код из шаблона перевести в код реакт-бутстрапа
+
+//  ВАЖНО код ниже нужен как резервный для файла MessageForm.jsx!!!!!!!
+
+// <div className="mt-auto px-5 py-3">
+//       <Form onSubmit={handleSubmit} className="py-1 border rounded-2">
+//         <InputGroup className="has-validation d-flex align-items-center">
+//           <FormControl
+//             name="body"
+//             aria-label={t('messages.newMessage')}
+//             placeholder={t('messages.printMessage')}
+//             className="border-0 p-6 ps-2 flex-grow-1"
+//             ref={inputRef}
+//           />
+//           <Button
+//             type="submit"
+//             disabled={isLoading}
+//             variant="outline-secondary"
+//             className="ml-2"
+//           >
+//             <i className="bi bi-arrow-right-square" style={{ fontSize: '20px' }} />
+//             <span className="visually-hidden">
+//               {t('buttons.send')}
+//             </span>
+//           </Button>
+//         </InputGroup>
+//       </Form>
+//     </div>
+
+// модифицированный код
+{/* 
+<div className="mt-auto px-5 py-3">
+  <Form noValidate onSubmit={handleSubmit} className="py-1 border rounded-2">
+    <InputGroup hasValidation>
+      <Form.Control
+        name="body"
+        aria-label={t('messages.newMessage')}
+        placeholder={t('messages.printMessage')}
+        className="border-0 p-0 ps-2"
+        ref={inputRef}
+      />
+      <Button type="submit" disabled className="btn btn-group-vertical">
+        <i className="bi bi-arrow-right-square" style={{ fontSize: '20px' }} />
+        <span className="visually-hidden">{t('buttons.send')}</span>
+      </Button>
+    </InputGroup>
+  </Form>
+</div>
+*/}
+
+
+//     // бутстрап
+//     <InputGroup className="mb-3">
+//       <Form.Control
+//         placeholder="Recipient's username"
+//         aria-label="Recipient's username"
+//         aria-describedby="basic-addon2"
+//       />
+//       <Button variant="outline-secondary" id="button-addon2">
+//         Button
+//       </Button>
+//      </InputGroup>

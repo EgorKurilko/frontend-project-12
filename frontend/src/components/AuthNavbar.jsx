@@ -18,10 +18,22 @@ const AuthNavbar = () => {
     navigate(appRoutes.login);
   };
 
+  const handleBrandClick = (e) => {
+    e.preventDefault(); // Отменяем стандартное поведение ссылки
+    navigate(isAuthenticated ? appRoutes.main : appRoutes.login);
+  };
+
   return (
     <Navbar expand="lg" className="shadow-sm navbar-light bg-white">
       <Container>
-        <Navbar.Brand href={appRoutes.main}>{t('main')}</Navbar.Brand>
+        <Navbar.Brand
+          as="a" // Сохраняем семантику ссылки
+          href={isAuthenticated ? appRoutes.main : appRoutes.login} // Для SEO и доступности
+          onClick={handleBrandClick}
+          style={{ cursor: 'pointer' }}
+        >
+          {t('main')}
+        </Navbar.Brand>
         {isAuthenticated && (
           <Button variant="primary" onClick={handleLogout}>
             {t('buttons.logout')}
