@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { appRoutes } from '../../routes';
 
 const RegistrationLink = ({ t }) => (
@@ -7,7 +8,7 @@ const RegistrationLink = ({ t }) => (
         {t('loginPage.exist')}
         {' '}
       </span>
-      <a href={appRoutes.signup}>{t('loginPage.registration')}</a>
+      <Link to={appRoutes.signup}>{t('loginPage.registration')}</Link>
     </div>
   </div>
 );

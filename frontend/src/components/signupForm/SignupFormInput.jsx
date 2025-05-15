@@ -1,10 +1,12 @@
 import { Form } from 'react-bootstrap';
+import React, { forwardRef } from 'react';
 
-const SignupFormInput = ({
+const SignupFormInput = forwardRef(({
   formik, t, field, errorMessage, registrationFailed, lastItem,
-}) => (
+}, ref) => (
   <>
     <Form.Control
+      ref={ref} // Передаем реф
       placeholder={field.placeholder}
       name={field.name}
       type={field.type}
@@ -25,6 +27,9 @@ const SignupFormInput = ({
     </Form.Control.Feedback>
     <Form.Label htmlFor={field.name}>{t(field.label)}</Form.Label>
   </>
-);
+));
+
+// Добавляем display name
+SignupFormInput.displayName = 'SignupFormInput';
 
 export default SignupFormInput;

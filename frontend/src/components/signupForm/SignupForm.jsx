@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useFormik } from 'formik';
 
@@ -32,6 +32,7 @@ const inputFields = [
 
 const SignupForm = ({ t }) => {
   const { handleSubmit, errorMessage, registrationFailed } = useSignup();
+  const usernameRef = useRef(null); // Создаем реф для поля имени пользователя
 
   const formik = useFormik({
     validationSchema: signupFormValidate(t),
@@ -43,12 +44,20 @@ const SignupForm = ({ t }) => {
     onSubmit: handleSubmit,
   });
 
+  useEffect(() => {
+    // Устанавливаем фокус на поле имени пользователя при монтировании компонента
+    if (usernameRef.current) {
+      usernameRef.current.focus();
+    }
+  }, []);
+
   return (
     <Form className="w-50" onSubmit={formik.handleSubmit}>
       <h1 className="text-center mb-4">{t('signupPage.header')}</h1>
       {inputFields.map((field, index) => (
         <Form.Group className="form-floating mb-3" key={field.name}>
           <SignupFormInput
+            ref={field.name === 'username' ? usernameRef : null} // Передаем реф только для поля имени пользователя
             formik={formik}
             t={t}
             field={field}

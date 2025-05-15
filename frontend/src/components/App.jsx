@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  BrowserRouter,
   Navigate,
   Routes,
   Route,
@@ -18,28 +17,27 @@ import SignupPage from './pages/SignupPage';
 import AuthNavbar from './AuthNavbar';
 import ModalsContainer from './modals/ModalsContainer';
 import { appRoutes } from '../routes';
+import useAuth from '../hooks/useAuth';
 
 const App = () => {
+  useAuth();
   const isAuthenticated = useSelector(getIsAuthenticated);
   return (
     <div className="d-flex flex-column h-100">
-      <BrowserRouter>
-        <AuthNavbar />
-        <ModalsContainer />
-        <Routes>
-          <Route
-            path={appRoutes.main}
-            element={
-              isAuthenticated ? <ChatPage /> : <Navigate to={appRoutes.login} replace />
-            }
-          />
-          {/* <Route path={appRoutes.main} element={<ChatPage />} /> */}
-          <Route path={appRoutes.login} element={<LoginPage />} />
-          <Route path={appRoutes.signup} element={<SignupPage />} />
-          <Route path={appRoutes.notFound} element={<NotFoundPage />} />
-        </Routes>
-        <ToastContainer />
-      </BrowserRouter>
+      <AuthNavbar />
+      <ModalsContainer />
+      <Routes>
+        <Route
+          path={appRoutes.main}
+          element={
+            isAuthenticated ? <ChatPage /> : <Navigate to={appRoutes.login} replace />
+          }
+        />
+        <Route path={appRoutes.login} element={<LoginPage />} />
+        <Route path={appRoutes.signup} element={<SignupPage />} />
+        <Route path={appRoutes.notFound} element={<NotFoundPage />} />
+      </Routes>
+      <ToastContainer />
     </div>
   );
 };

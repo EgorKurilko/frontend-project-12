@@ -18,8 +18,8 @@ const AuthNavbar = () => {
     navigate(appRoutes.login);
   };
 
-  const handleBrandClick = (e) => {
-    e.preventDefault(); // Отменяем стандартное поведение ссылки
+  const handleBrandClick = () => {
+    // e.preventDefault(); // Отменяем стандартное поведение ссылки
     navigate(isAuthenticated ? appRoutes.main : appRoutes.login);
   };
 
@@ -28,7 +28,6 @@ const AuthNavbar = () => {
       <Container>
         <Navbar.Brand
           as="a" // Сохраняем семантику ссылки
-          href={isAuthenticated ? appRoutes.main : appRoutes.login} // Для SEO и доступности
           onClick={handleBrandClick}
           style={{ cursor: 'pointer' }}
         >
